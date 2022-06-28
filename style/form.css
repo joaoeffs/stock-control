@@ -1,0 +1,29 @@
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.forms {
+    display: flex;
+    justify-content: space-around;
+}
+
+.roupas {
+    display: none;
+}
+
+.brinquedos {
+    display: none;
+}
+
+.comidas {
+    display: none;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <div class="index">
+            <header class="header">
+                <div class="title pt-3">
+                    <h2>Controle Estoque</h2>
+                </div>
+            </header>
+
+            <div class="main">
+                <div class="sidebar">
+                    <p>
+                        <h4>
+                            <a href="/newComida">Formulário Registro</a>
+                        </h4>
+                    </p>
+                    <p>
+                        <h4>
+                            <a href="/indexProduto">Produtos</a>
+                        </h4>
+                    </p>
+                    <p>
+                        <h4>
+                            <a href="/newProduto">Formulário Produto</a>
+                        </h4>
+                    </p>
+                </div>
+
+                <div class="content">
+                    <div class="part-1">
+                        <a href="indexComida" class="every">
+                            <center class="mt-4">
+                                <h1>
+                                    TODOS
+                                </h1>
+                            </center>
+                        </a>
+                        <a href="indexComidaEntrada" class="input">
+                            <center class="mt-4">
+                                <h1>
+                                    ENTRADA
+                                </h1>
+                            </center>
+                        </a>
+                        <a href="indexComidaSaida" class="output">
+                            <center class="mt-4">
+                                <h1>
+                                    SAÍDA
+                                </h1>
+                            </center>
+                        </a>
+                    </div>
+                    <div class="part-2">
+                        <div class="last-5-input">
+                            <main>
+                                <% if (!entrada || entrada.length == 0) { %>
+                                    <div>
+                                        <h4>Sem nenhum registro</h4>
+                                    </div>
+                                <% } else { 
+                                    entrada.forEach(function(comida, index) { %>
+                                    <div class="registro mt-3">
+                                        <div class="box" style="border: 3px solid greenyellow;">
+                                            <div class="registro">
+                                                Registro
+                                                <center class="pt-2">
+                                                    <%= comida.ID_CONSUMO %>
+                                                </center>
+                                            </div>
+                                            <div class="produto">
+                                                Produto
+                                                <center class="pt-2">
+                                                    <%= comida.NOME_PRODUTO %>
+                                                </center>
+                                            </div>
+                                            <div class="movimentacao">
+                                                Movimentação
+                                                <center class="pt-2">
+                                                    <%= comida.NOME_CONSUMO %>
+                                                </center>
+                                            </div>
+                                            <div class="quantidade">
+                                                Quantidade
+                                                <center class="pt-2">
+                                                    <%= comida.QUANTIDADE_CONSUMO %>
+                                                </center>
+                                            </div>
+                                            <div class="motivo">
+                                                Motivo
+                                                <center class="pt-2">
+                                                    <%= comida.MOTIVO_CONSUMO %>
+                                                </center>
+                                            </div>
+                                            <!-- <div class="data">
+                                                Data
+                                                <center class="pt-2">
+                                                    <%= comida.DATA_CONSUMO %>
+                                                </center>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                <% })} %>
+                            </main>
+                        </div>
+                        
+                        <div class="last-5-output">
+                            <main>
+                                <% if (!saida || saida.length == 0) { %>
+                                    <div>
+                                        <h4>Sem nenhum registro</h4>
+                                    </div>
+                                <% } else { 
+                                    saida.forEach(function(comida, index) { %>
+                                    <div class="registro mt-3">
+                                        <div class="box" style="border: 3px solid red;">
+                                            <div class="registro">
+                                                Registro
+                                                <center class="pt-2">
+                                                    <%= comida.ID_CONSUMO %>
+                                                  </center>
+                                            </div>
+                                            <div class="produto">
+                                                Produto
+                                                <center class="pt-2">
+                                                    <%= comida.NOME_PRODUTO %>
+                                                  </center>
+                                            </div>
+                                            <div class="movimentacao">
+                                                Movimentação
+                                                <center class="pt-2">
+                                                    <%= comida.NOME_CONSUMO %>
+                                                  </center>
+                                            </div>
+                                            <div class="quantidade">
+                                                Quantidade
+                                                <center class="pt-2">
+                                                    <%= comida.QUANTIDADE_CONSUMO %>
+                                                  </center>
+                                            </div>
+                                            <div class="motivo">
+                                                Motivo
+                                                <center class="pt-2">
+                                                    <%= comida.MOTIVO_CONSUMO %>
+                                                  </center>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% })} %>
+                            </main>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+  </body>
+</html>

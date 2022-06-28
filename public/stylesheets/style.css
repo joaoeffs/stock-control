@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.teste {
+  margin: 50px;
+}
+
+.box {
+  margin-left: 5%;
+  margin-right: 5%;
+  height: 100px;
+  border: 3px solid greenyellow;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  height: 8.5vh;
+  background-color: #778899;
+  display: flex;
+  justify-content: space-around;;
+}
+
+.main  {
+  display: flex;
+}
+
+.sidebar {
+  height: 91.3vh;
+  width: 15%;
+  background-color: #778899;
+}
+
+.text-inicio {
+  display: flex;
+  justify-content: space-around;
+}
+
+.content {
+  width: 85%;
+}
+
+.part-1 {
+  padding: 4%;
+  display: flex;
+  justify-content: space-around;
+  height: 30%;
+}
+
+.part-2 {
+  padding: 4%;
+  display: flex;
+  justify-content: space-around;
+  height: 40%;
+}
+
+.every {
+  width: 20%;
+  background-color: #87CEFA;
+  border-radius: 15px
+}
+
+.input {
+  width: 20%;
+  background-color: #90EE90;
+  border-radius: 15px
+}
+
+.output {
+  width: 20%;
+  background-color: #FF6347;
+  border-radius: 15px
+}
+
+.last-5-input {
+  width: 45%;
+  height: 225%;
+  border: 5px solid black;
+  border-radius: 15px
+}
+
+.last-5-output {
+  width: 45%;
+  height: 225%;
+  border: 5px solid black;
+  border-radius: 15px;
+}
+
+.rotas {
+  display: flex;
+  justify-content: space-around;
+}
+
+a:link {
+  text-decoration: none;
+  color: black;
+}
+
+.box-produtos {
+  margin-left: 15%;
+  margin-right: 15%;
+  height: 100px;
+  border: 3px solid black;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+}
