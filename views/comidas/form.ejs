@@ -16,9 +16,15 @@
                         <h2 class="title">Comida</h2>
                         <form action="<%=acao%>" method="post">
                             <label class="form-label mt-3">Produto</label>
+        
                             <select name="produto" class="form-select">
-                                <option <% if (comida.ID_CADASTRO_PRODUTO == 1) { %> selected <% } %> value="1">Leite</option>
-                                <option <% if (comida.ID_CADASTRO_PRODUTO == 2) { %> selected <% } %> value="2">Arroz</option>
+                                <% var a = 0;
+                                for (var i = 1; i <= produto.length; i++) { 
+                                    var idProduto = produto[a].ID_CADASTRO_PRODUTO %>
+                                    <option <% if (comida.ID_CADASTRO_PRODUTO == idProduto) { %> selected <% } %> value="<%=idProduto%>"><%=produto[a].NOME_PRODUTO%></option>
+                                <% a++;
+                                } %>
+                                
                             </select>
 
                             <label class="form-label mt-3">Tipo Consumo</label>

@@ -37,13 +37,13 @@
                 <div class="registro">
                   <h4>Registro</h4>
                   <center>
-                    <h5 class="pt-2"><%= comida.ID_CONSUMO %></h5>
+                    <h5><%= comida.ID_CONSUMO %></h5>
                   </center>
                 </div>
                 <div class="produto">
                   <h4>Produto</h4>
                   <center>
-                    <h5 class="pt-2"><%= comida.NOME_PRODUTO %></h5>
+                    <h5><%= comida.NOME_PRODUTO %></h5>
                   </center>
                 </div>
                 <div class="movimentacao">
@@ -59,9 +59,10 @@
                   </center>
                 </div>
                 <div class="motivo">
-                  <h4>Motivo</h4>
+                  <h4>Data</h4>
                   <center>
-                    <h5><%= comida.MOTIVO_CONSUMO %></h5>
+                    <% var formatter = new Intl.DateTimeFormat('pt-BR') %>
+                    <h5><%= formatter.format(comida.DATA_CONSUMO) %></h5>
                   </center>
                 </div>
                 <div class="button">

@@ -26,7 +26,9 @@ router.get('/indexComidaSaida', async function(req, res) {
 
 /* GET FORM PAGE COMIDA*/
 router.get('/newComida', async function(req, res) {
-  res.render('comidas/form', { title: 'New Comida', acao: '/newComida', comida: {} });
+  const produto = await global.db.produto();
+  
+  res.render('comidas/form', { title: 'New Comida', acao: '/newComida', produto, comida: {} });
 })
 
 /* CRIAR NOVO REGISTRO NA TABELA REGISTRO_CONSUMO */
@@ -53,8 +55,9 @@ router.get('/deletarComida/:id', async function (req, res) {
 router.get('/alterarComida/:id', async function (req, res) {
   const id = parseInt(req.params.id);
   const comida = await global.db.recuperarComida(id);
+  const produto = await global.db.produto();
 
-  res.render('comidas/form', { title: 'Alterar Comida', acao: '/alterarComida/' + id, comida });
+  res.render('comidas/form', { title: 'Alterar Comida', acao: '/alterarComida/' + id, comida, produto });
 })
 
 /* ALTERAR OS DADOS NO REGISTRO_CONSUMO */

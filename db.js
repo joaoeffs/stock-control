@@ -139,6 +139,14 @@ async function alterarProduto(produto) {
     return await conexao.query(sql, [produto.produto, produto.id ])
 }
 
+async function produto() {
+    const conexao = await conectarDB();
+    const sql = 'SELECT * FROM CADASTRO_PRODUTO;';
+    const [produto] = await conexao.query(sql);
+
+    return produto;
+}
+
 module.exports = { 
     listarComidas,
     listarComidasEntrada,
@@ -151,5 +159,6 @@ module.exports = {
     recuperarComida,
     recuperarProduto,
     alterarComida,
-    alterarProduto
+    alterarProduto,
+    produto
 }

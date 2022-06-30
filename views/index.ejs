@@ -93,17 +93,12 @@
                                                 </center>
                                             </div>
                                             <div class="motivo">
-                                                Motivo
-                                                <center class="pt-2">
-                                                    <%= comida.MOTIVO_CONSUMO %>
-                                                </center>
-                                            </div>
-                                            <!-- <div class="data">
                                                 Data
                                                 <center class="pt-2">
-                                                    <%= comida.DATA_CONSUMO %>
+                                                  <% var formatter = new Intl.DateTimeFormat('pt-BR') %>
+                                                  <%= formatter.format(comida.DATA_CONSUMO) %>
                                                 </center>
-                                            </div> -->
+                                              </div>
                                         </div>
                                     </div>
                                 <% })} %>
@@ -145,10 +140,11 @@
                                                   </center>
                                             </div>
                                             <div class="motivo">
-                                                Motivo
+                                                Data
                                                 <center class="pt-2">
-                                                    <%= comida.MOTIVO_CONSUMO %>
-                                                  </center>
+                                                  <% var formatter = new Intl.DateTimeFormat('pt-BR') %>
+                                                  <%= formatter.format(comida.DATA_CONSUMO) %>
+                                                </center>
                                             </div>
                                         </div>
                                     </div>
