@@ -116,4 +116,11 @@ router.post('/alterarProduto/:id', async function(req, res) {
   res.redirect('/indexProduto');
 })
 
+router.get('/indexProdutoQuantidade', async function(req, res) {
+  const todosProdutos = await global.db.totalProduto();
+  const produto = await global.db.quantidadeProduto(todosProdutos);
+
+  res.render('quantidadeProduto/index', {produto});
+})
+
 module.exports = router;

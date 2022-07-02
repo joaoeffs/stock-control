@@ -42,7 +42,7 @@ async function listarComidasEntrada() {
                 'FROM REGISTRO_CONSUMO RC ' +
                 'INNER JOIN CADASTRO_PRODUTO CP ON CP.ID_CADASTRO_PRODUTO = RC.ID_CADASTRO_PRODUTO ' +
                 'INNER JOIN TIPO_CONSUMO TC ON TC.ID_TIPO_CONSUMO = RC.ID_TIPO_CONSUMO ' +
-                'WHERE TC.ID_TIPO_CONSUMO = 1 ' +
+                'WHERE TC.ID_TIPO_CONSUMO = 3 ' +
                 'ORDER BY RC.ID_CONSUMO DESC ' +
                 'LIMIT 4'
     const [comidas] = await conexao.query(sql)
@@ -61,7 +61,7 @@ async function listarComidasSaida() {
                 'FROM REGISTRO_CONSUMO RC ' +
                 'INNER JOIN CADASTRO_PRODUTO CP ON CP.ID_CADASTRO_PRODUTO = RC.ID_CADASTRO_PRODUTO ' +
                 'INNER JOIN TIPO_CONSUMO TC ON TC.ID_TIPO_CONSUMO = RC.ID_TIPO_CONSUMO ' +
-                'WHERE TC.ID_TIPO_CONSUMO = 2 '
+                'WHERE TC.ID_TIPO_CONSUMO = 4 '
                 'ORDER BY TC.ID_TIPO_CONSUMO DESC ' +   
                 'LIMIT 4'
     const [comidas] = await conexao.query(sql)
@@ -147,6 +147,38 @@ async function produto() {
     return produto;
 }
 
+async function quantidadeProduto(produto) {
+    const produtoQuantidade = [];
+    var j = 0;
+    for(var i = 1; i <= produto.length; i++) {
+        const campo = produto[j].ID_CADASTRO_PRODUTO;
+
+        const conexao = await conectarDB();
+        const sql = 'SELECT ' +
+                    '(SELECT SUM(QUANTIDADE_CONSUMO)) QUANTIDADE,' + 
+                    'CP.NOME_PRODUTO ' + 
+                    'FROM REGISTRO_CONSUMO RC ' + 
+                    'INNER JOIN CADASTRO_PRODUTO CP ON CP.ID_CADASTRO_PRODUTO = RC.ID_CADASTRO_PRODUTO ' + 
+                    'WHERE RC.ID_CADASTRO_PRODUTO = ? AND RC.ID_TIPO_CONSUMO = 3;'
+        const [quantidade] = await conexao.query(sql, [campo]);
+        produtoQuantidade.push(quantidade);
+        
+        if (i == produto.length) {
+            return produtoQuantidade;
+        }
+        
+        j++;
+    }
+}
+
+async function totalProduto() {
+    const conexao = await conectarDB();
+    const sql = 'SELECT DISTINCT ID_CADASTRO_PRODUTO FROM REGISTRO_CONSUMO;'
+    const [total] = await conexao.query(sql);
+
+    return total;
+}
+
 module.exports = { 
     listarComidas,
     listarComidasEntrada,
@@ -160,5 +192,7 @@ module.exports = {
     recuperarProduto,
     alterarComida,
     alterarProduto,
-    produto
+    produto,
+    quantidadeProduto,
+    totalProduto
 }
