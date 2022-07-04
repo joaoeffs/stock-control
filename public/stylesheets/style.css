@@ -12,10 +12,11 @@
   margin-left: 5%;
   margin-right: 5%;
   height: 100px;
-  border: 3px solid greenyellow;
+  border: 3px solid #2f9bdf;
   border-radius: 10px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .button {
@@ -26,9 +27,10 @@
 
 .header {
   height: 8.5vh;
-  background-color: #778899;
+  background-color: #bdbdbd;
   display: flex;
-  justify-content: space-around;;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .main  {
@@ -36,9 +38,10 @@
 }
 
 .sidebar {
-  height: 91.3vh;
+  height: 93vh;
   width: 15%;
-  background-color: #778899;
+  background-color: #bdbdbd;
+  padding-left: 2%;
 }
 
 .text-inicio {
@@ -66,44 +69,64 @@
 
 .every {
   width: 20%;
-  background-color: #87CEFA;
-  border-radius: 15px
+  background-color: #2f9bdf;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .input {
   width: 20%;
-  background-color: #90EE90;
-  border-radius: 15px
+  background-color: #4deb4d;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .output {
   width: 20%;
-  background-color: #FF6347;
-  border-radius: 15px
+  background-color: #ee593f;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .last-5-input {
   width: 45%;
   height: 225%;
-  border: 5px solid black;
-  border-radius: 15px
+  border: 3px solid black;
+  background-color: #bdbdbd;
+  border-radius: 15px;
+  box-shadow: 0px 0px 15px rgb(51, 51, 51);
 }
 
 .last-5-output {
   width: 45%;
   height: 225%;
-  border: 5px solid black;
+  border: 3px solid black;
+  background-color: #bdbdbd;
   border-radius: 15px;
+  box-shadow: 0px 0px 15px rgb(51, 51, 51);
 }
 
 .rotas {
   display: flex;
+  padding-top: 1%;
+  padding-bottom: 0.5%;
+  background-color: #bdbdbd;
   justify-content: space-around;
 }
 
-a:link {
+a:link, a:visited {
   text-decoration: none;
   color: black;
+}
+
+a:hover {
+  color: white;
 }
 
 .box-produtos {
@@ -114,4 +137,8 @@ a:link {
   border-radius: 10px;
   display: flex;
   justify-content: space-around;
+}
+
+.infos {
+  margin-top: 10%;
 }

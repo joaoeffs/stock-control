@@ -9,13 +9,13 @@
 
     <div class="index">
             <header class="header">
-                <div class="title pt-3">
-                    <h2>Controle Estoque</h2>
+                <div class="title">
+                    <h2>Controle de Estoque</h2>
                 </div>
             </header>
 
             <div class="main">
-                <div class="sidebar">
+                <div class="sidebar pl-3">
                     <p>
                         <h4>
                             <a href="/newComida">Formulário Registro</a>
@@ -41,25 +41,19 @@
                 <div class="content">
                     <div class="part-1">
                         <a href="indexComida" class="every">
-                            <center class="mt-4">
-                                <h1>
-                                    TODOS
-                                </h1>
-                            </center>
+                            <h1>
+                                TODOS
+                            </h1>
                         </a>
                         <a href="indexComidaEntrada" class="input">
-                            <center class="mt-4">
-                                <h1>
-                                    ENTRADA
-                                </h1>
-                            </center>
+                            <h1>
+                                ENTRADA
+                            </h1>
                         </a>
                         <a href="indexComidaSaida" class="output">
-                            <center class="mt-4">
-                                <h1>
-                                    SAÍDA
-                                </h1>
-                            </center>
+                            <h1>
+                                SAÍDA
+                            </h1>
                         </a>
                     </div>
                     <div class="part-2">
@@ -72,34 +66,34 @@
                                 <% } else { 
                                     entrada.forEach(function(comida, index) { %>
                                     <div class="registro mt-3">
-                                        <div class="box" style="border: 3px solid greenyellow;">
+                                        <div class="box" style="border: 3px solid #2ab32a ;">
                                             <div class="registro">
                                                 Registro
-                                                <center class="pt-2">
+                                                <center class="infos">
                                                     <%= comida.ID_CONSUMO %>
                                                 </center>
                                             </div>
                                             <div class="produto">
                                                 Produto
-                                                <center class="pt-2">
+                                                <center class="infos">
                                                     <%= comida.NOME_PRODUTO %>
                                                 </center>
                                             </div>
                                             <div class="movimentacao">
                                                 Movimentação
-                                                <center class="pt-2">
+                                                <center class="infos">
                                                     <%= comida.NOME_CONSUMO %>
                                                 </center>
                                             </div>
                                             <div class="quantidade">
                                                 Quantidade
-                                                <center class="pt-2">
+                                                <center class="infos">
                                                     <%= comida.QUANTIDADE_CONSUMO %>
                                                 </center>
                                             </div>
                                             <div class="motivo">
                                                 Data
-                                                <center class="pt-2">
+                                                <center class="infos">
                                                   <% var formatter = new Intl.DateTimeFormat('pt-BR') %>
                                                   <%= formatter.format(comida.DATA_CONSUMO) %>
                                                 </center>
