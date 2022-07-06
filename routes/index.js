@@ -6,29 +6,30 @@ var router = express.Router();
 router.get('/', async function(req, res) {
   const entrada = await global.db.listarComidasEntrada();
   const saida = await global.db.listarComidasSaida();
-  res.render('index', {entrada, saida});
+  res.render('index', { entrada, saida });
 })
 
 router.get('/indexComida', async function(req, res) {
   const data = await global.db.listarComidas();
-  res.render('comidas/index', {data});
+  res.render('comidas/index', { data });
 })
 
 router.get('/indexComidaEntrada', async function(req, res) {
   const data = await global.db.listarComidasEntrada();
-  res.render('comidas/index', {data});
+  res.render('comidas/index', { data });
 })
 
 router.get('/indexComidaSaida', async function(req, res) {
   const data = await global.db.listarComidasSaida();
-  res.render('comidas/index', {data});
+  res.render('comidas/index', { data });
 })
 
 /* GET FORM PAGE COMIDA*/
 router.get('/newComida', async function(req, res) {
   const produto = await global.db.produto();
+  const consumo = await global.db.consumo();
   
-  res.render('comidas/form', { title: 'New Comida', acao: '/newComida', produto, comida: {} });
+  res.render('comidas/form', { title: 'New Comida', acao: '/newComida', produto, comida: {}, consumo });
 })
 
 /* CRIAR NOVO REGISTRO NA TABELA REGISTRO_CONSUMO */
@@ -56,8 +57,9 @@ router.get('/alterarComida/:id', async function (req, res) {
   const id = parseInt(req.params.id);
   const comida = await global.db.recuperarComida(id);
   const produto = await global.db.produto();
+  const consumo = await global.db.consumo();
 
-  res.render('comidas/form', { title: 'Alterar Comida', acao: '/alterarComida/' + id, comida, produto });
+  res.render('comidas/form', { title: 'Alterar Comida', acao: '/alterarComida/' + id, comida, produto, consumo });
 })
 
 /* ALTERAR OS DADOS NO REGISTRO_CONSUMO */
@@ -78,12 +80,12 @@ router.post('/alterarComida/:id', async function(req, res) {
 /* GET home page Produto */
 router.get('/indexProduto', async function(req, res) {
   const produto = await global.db.listarProdutos();
-  res.render('produto/index', {produto});
+  res.render('produto/index', { produto });
 })
 
 /* GET form page Produto */
 router.get('/newProduto', async function(req, res) {
-  res.render('produto/form', {title: 'New Produto', acao: '/newProduto', produto: {} });
+  res.render('produto/form', { title: 'New Produto', acao: '/newProduto', produto: {} });
 })
 
 /* POST NEW PRODUTO */
@@ -91,7 +93,7 @@ router.post('/newProduto', async (req, res) => {
   const produto = req.body.produto;
 
   await global.db.criarProduto({ produto });
-  res.redirect('/indexComida');
+  res.redirect('/indexProduto');
 })
 
 router.get('/deletarProduto/:id', async function (req, res) {
@@ -120,7 +122,7 @@ router.get('/indexProdutoQuantidade', async function(req, res) {
   const todosProdutos = await global.db.totalProduto();
   const produto = await global.db.quantidadeProduto(todosProdutos);
 
-  res.render('quantidadeProduto/index', {produto});
+  res.render('quantidadeProduto/index', { produto });
 })
 
 module.exports = router;

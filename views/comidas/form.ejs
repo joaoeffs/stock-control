@@ -29,8 +29,12 @@
 
                             <label class="form-label mt-3">Tipo Consumo</label>
                             <select name="consumo" class="form-select">
-                                <option <% if (comida.ID_TIPO_CONSUMO == 3) { %> selected <% } %> value="3">Entrada</option>
-                                <option <% if (comida.ID_TIPO_CONSUMO == 4) { %> selected <% } %> value="4">Saida</option>
+                                <% 
+                                    var entrada = consumo[0].ID_TIPO_CONSUMO
+                                    var saida = consumo[1].ID_TIPO_CONSUMO
+                                %>
+                                <option <% if (comida.ID_TIPO_CONSUMO == 3) { %> selected <% } %> value="<%=entrada%>">Entrada</option>
+                                <option <% if (comida.ID_TIPO_CONSUMO == 4) { %> selected <% } %> value="<%=saida%>">Saida</option>
                             </select>
                         
                             <div class="row">
