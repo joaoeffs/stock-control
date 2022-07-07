@@ -132,11 +132,13 @@ a:hover {
 .box-produtos {
   margin-left: 15%;
   margin-right: 15%;
+  margin-top: 3%;
   height: 100px;
   border: 3px solid black;
   border-radius: 10px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .infos {
